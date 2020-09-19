@@ -23,7 +23,7 @@ public class OrderService {
     public Order insert(OrderDTO orderDTO) {
         var order = orderMapper.mapOrderDTOTOOrder(orderDTO);
         order.setOrderStatus(OrderStatus.PENDING);
-        orderRepository.insert(order);
+        order = orderRepository.insert(order);
         orderProducer.sendMessage(order);
 
         return order;
