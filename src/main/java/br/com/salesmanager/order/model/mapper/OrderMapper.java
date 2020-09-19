@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class OrderMapper {
 
-    public Order mapOrderDTOTOOrder(OrderDTO orderDTO) {
+    public Order mapOrderDTOToOrder(OrderDTO orderDTO) {
         return Order.builder()
                 .customerId(orderDTO.getCustomerId())
                 .productName(orderDTO.getProductName())

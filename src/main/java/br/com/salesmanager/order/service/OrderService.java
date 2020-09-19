@@ -1,7 +1,7 @@
 package br.com.salesmanager.order.service;
 
 import br.com.salesmanager.order.model.Order;
-import br.com.salesmanager.order.model.OrderStatus;
+import br.com.salesmanager.order.model.enums.OrderStatus;
 import br.com.salesmanager.order.model.dto.OrderDTO;
 import br.com.salesmanager.order.model.mapper.OrderMapper;
 import br.com.salesmanager.order.repository.OrderRepository;
@@ -21,7 +21,7 @@ public class OrderService {
     OrderProducer orderProducer;
 
     public Order insert(OrderDTO orderDTO) {
-        var order = orderMapper.mapOrderDTOTOOrder(orderDTO);
+        var order = orderMapper.mapOrderDTOToOrder(orderDTO);
         order.setOrderStatus(OrderStatus.PENDING);
         order = orderRepository.insert(order);
         orderProducer.sendMessage(order);

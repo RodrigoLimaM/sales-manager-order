@@ -19,7 +19,7 @@ public class OrderDTO {
 
     @NotBlank
     @NotNull
-    private final Long customerId;
+    private final String customerId;
 
     @NotBlank
     @NotNull

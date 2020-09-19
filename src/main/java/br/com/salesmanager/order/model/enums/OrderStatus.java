@@ -1,4 +1,4 @@
-package br.com.salesmanager.order.model;
+package br.com.salesmanager.order.model.enums;
 
 public enum OrderStatus {
     FINISHED,

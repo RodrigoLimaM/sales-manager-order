@@ -1,14 +1,16 @@
 package br.com.salesmanager.order.model;
 
+import br.com.salesmanager.order.model.enums.OrderStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.ToString;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
+import org.springframework.data.mongodb.core.mapping.FieldType;
+import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -20,12 +22,11 @@ import java.time.LocalDateTime;
 @Builder
 public class Order {
 
-    @Id
-    @Field(name = "_id")
-    private final String orderId;
+    @MongoId(value = FieldType.OBJECT_ID)
+    private final String _id;
 
     @Field(name = "customer_id")
-    private final Long customerId;
+    private final String customerId;
 
     @Field(name = "product_name")
     private final String productName;
