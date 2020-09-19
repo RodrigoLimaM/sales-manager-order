@@ -22,6 +22,7 @@ public class OrderController {
 
     @PostMapping
     public ResponseEntity<Order> createOrder(@RequestBody OrderDTO orderDTO) throws URISyntaxException {
-        return ResponseEntity.created(new URI("/order")).body(orderService.insert(orderDTO));
+        return ResponseEntity.created(new URI("/order"))
+                .body(orderService.insert(orderDTO));
     }
 }
