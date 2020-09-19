@@ -15,13 +15,13 @@ public class OrderDTO {
 
     @NotBlank
     @NotNull
-    private String productName;
+    private final String productName;
 
     @NotBlank
     @NotNull
-    private Long customerId;
+    private final Long customerId;
 
     @NotBlank
     @NotNull
-    private BigDecimal value;
+    private final BigDecimal value;
 }

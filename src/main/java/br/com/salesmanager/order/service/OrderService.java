@@ -1,6 +1,7 @@
 package br.com.salesmanager.order.service;
 
 import br.com.salesmanager.order.model.Order;
+import br.com.salesmanager.order.model.OrderStatus;
 import br.com.salesmanager.order.model.dto.OrderDTO;
 import br.com.salesmanager.order.model.mapper.OrderMapper;
 import br.com.salesmanager.order.repository.OrderRepository;
@@ -20,7 +21,9 @@ public class OrderService {
     OrderProducer orderProducer;
 
     public Order insert(OrderDTO orderDTO) {
-        var order = orderRepository.insert(orderMapper.mapOrderDTOTOOrder(orderDTO));
+        var order = orderMapper.mapOrderDTOTOOrder(orderDTO);
+        order.setOrderStatus(OrderStatus.PENDING);
+        orderRepository.insert(order);
         orderProducer.sendMessage(order);
 
         return order;

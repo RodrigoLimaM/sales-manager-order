@@ -22,22 +22,29 @@ public class Order {
 
     @Id
     @Field(name = "_id")
-    private String orderId;
+    private final String orderId;
 
     @Field(name = "customer_id")
-    private Long customerId;
+    private final Long customerId;
 
     @Field(name = "product_name")
-    private String productName;
+    private final String productName;
 
     @Field(name = "order_value")
-    private BigDecimal value;
+    private final BigDecimal value;
+
+    @Field(name = "order_status")
+    private OrderStatus orderStatus;
 
     @CreatedDate
     @Field(name = "creation_date")
-    private LocalDateTime creationDate;
+    private final LocalDateTime creationDate;
 
     @LastModifiedDate
     @Field(name = "update_date")
     private LocalDateTime updateDate;
+
+    public void setOrderStatus(OrderStatus orderStatus) {
+        this.orderStatus = orderStatus;
+    }
 }
