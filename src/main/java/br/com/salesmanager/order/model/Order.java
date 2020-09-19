@@ -45,6 +45,10 @@ public class Order {
     @Field(name = "update_date")
     private LocalDateTime updateDate;
 
+    public String getOrderId() {
+        return _id;
+    }
+
     public void setOrderStatus(OrderStatus orderStatus) {
         this.orderStatus = orderStatus;
     }

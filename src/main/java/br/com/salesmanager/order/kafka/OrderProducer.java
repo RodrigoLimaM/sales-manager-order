@@ -1,12 +1,12 @@
-package br.com.salesmanager.order.service;
+package br.com.salesmanager.order.kafka;
 
 import br.com.salesmanager.order.model.Order;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
-@Service
+@Component
 @Slf4j
 public class OrderProducer {
 
