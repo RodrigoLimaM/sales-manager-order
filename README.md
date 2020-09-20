@@ -18,20 +18,20 @@ Microsservice for order management of the sales-manager architecture
     ```
  * **Success Response:**
  
-     * **Code:** 201 <br />
-         **Content:**
-     ```json
-     {
-           "_id": "5f677945d9e3f749d4f42f97",
-           "customerId": "string",
-           "productName": "string",
-           "value": 500,
-           "orderStatus": "PENDING",
-           "creationDate": "2020-09-20T12:46:13.0672456",
-           "updateDate": "2020-09-20T12:46:13.0672456",
-           "orderId": "5f677945d9e3f749d4f42f97"
-         }
-     ```
+    * **Code:** 201 <br />
+        **Content:**
+    ```json
+    {
+       "_id": "5f677945d9e3f749d4f42f97",
+       "customerId": "string",
+       "productName": "string",
+       "value": 500,
+       "orderStatus": "PENDING",
+       "creationDate": "2020-09-20T12:46:13.0672456",
+       "updateDate": "2020-09-20T12:46:13.0672456",
+       "orderId": "5f677945d9e3f749d4f42f97"
+    }
+    ```
     
 * **Error Response:**
 
