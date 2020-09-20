@@ -21,7 +21,6 @@ public class OrderDTO {
     @NotNull
     private final String customerId;
 
-    @NotBlank
     @NotNull
     private final BigDecimal value;
 }
