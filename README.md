@@ -14,7 +14,7 @@ Microsservice for order management of the sales-manager architecture
        "customerId": "string",
        "productName": "string",
        "value": 500.0
-     }
+    }
     ```
  * **Success Response:**
  
