@@ -13,12 +13,12 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 public class OrderChangeListener {
 
-    private static final String TOPIC = "ORDER_STATUS_CHANGE";
+    private static final String TOPIC = "yje6oae7-ORDER_STATUS_CHANGE";
 
     @Autowired
     OrderService orderService;
 
-    @KafkaListener(topics = "ORDER_STATUS_CHANGE", groupId = "sales_manager", containerFactory = "userKafkaListenerContainerFactory")
+    @KafkaListener(topics = "yje6oae7-ORDER_STATUS_CHANGE")
     public void consume(OrderChange orderChange) {
         log.info("Message Listened: {}, Topic: {}", orderChange, TOPIC);
 

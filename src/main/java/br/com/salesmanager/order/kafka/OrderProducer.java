@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class OrderProducer {
 
-    private static final String TOPIC = "NEW_ORDER";
+    private static final String TOPIC = "yje6oae7-NEW_ORDER";
 
     @Autowired
     private KafkaTemplate<String, Order> kafkaTemplate;
