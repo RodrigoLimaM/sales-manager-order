@@ -29,16 +29,15 @@ public class OrderService {
     SalesManagerProductClient salesManagerProductClient;
 
     public Order insert(OrderDTO orderDTO) {
-        if(salesManagerProductClient.hasAvailableStock(orderDTO.getProductQuantity(), orderDTO.getProductId())) {
-            var order = orderMapper.mapOrderDTOToOrder(orderDTO, salesManagerProductClient.getUnitaryValue(orderDTO.getProductId()));
-            order.setOrderStatus(OrderStatus.PENDING);
-            order = orderRepository.insert(order);
-            orderProducer.sendMessage(order);
-
-            return order;
-        } else {
+        if(!salesManagerProductClient.hasAvailableStock(orderDTO.getProductQuantity(), orderDTO.getProductId()))
             throw new UnavailableProductException();
-        }
+
+        var order = orderMapper.mapOrderDTOToOrder(orderDTO, salesManagerProductClient.getUnitaryValue(orderDTO.getProductId()));
+        order.setOrderStatus(OrderStatus.PENDING);
+        order = orderRepository.insert(order);
+        orderProducer.sendMessage(order);
+
+        return order;
     }
 
     public Order updateOrderStatus(Order order, OrderStatus orderStatus) {

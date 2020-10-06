@@ -11,9 +11,9 @@ Microsservice for order management of the sales-manager architecture
  *  **Request Body**
     ```json
     {
-       "customerId": "string",
-       "productName": "string",
-       "value": 500.0
+      "customerId": "5f7cdf2f00f37b096056a874",
+      "productId": "5f7cdfb273e86e129ea6efa9",
+      "productQuantity": 5
     }
     ```
  * **Success Response:**
@@ -22,14 +22,15 @@ Microsservice for order management of the sales-manager architecture
         **Content:**
     ```json
     {
-       "_id": "5f677945d9e3f749d4f42f97",
-       "customerId": "string",
-       "productName": "string",
-       "value": 500,
-       "orderStatus": "PENDING",
-       "creationDate": "2020-09-20T12:46:13.0672456",
-       "updateDate": "2020-09-20T12:46:13.0672456",
-       "orderId": "5f677945d9e3f749d4f42f97"
+      "_id": "5f7ce3a263fd9b52935c4f19",
+      "customerId": "5f7cdf2f00f37b096056a874",
+      "productId": "5f7cdfb273e86e129ea6efa9",
+      "productQuantity": 5,
+      "orderTotalValue": 11000,
+      "orderStatus": "PENDING",
+      "creationDate": "2020-10-06T18:37:38.1778324",
+      "updateDate": "2020-10-06T18:37:38.1778324",
+      "orderId": "5f7ce3a263fd9b52935c4f19"
     }
     ```
     
@@ -39,20 +40,19 @@ Microsservice for order management of the sales-manager architecture
         **Content:** 
     ```json
     {
-       "timestamp": "2020-09-20T12:42:35.305623",
-       "status": 400,
-       "message": "Invalid null or blank field"
+      "timestamp": "2020-10-06T18:38:10.1928963",
+      "status": 400,
+      "message": "Invalid null or blank field"
     }
     ```
   
- * **Architecture:**
+* **Architecture:**
  
-    ![Alt text](https://user-images.githubusercontent.com/51386403/93714108-e232b080-fb36-11ea-9881-894dd0f900a2.png "Architecture")
-    * 1 - Will receive an order, create it and persist on MongoDB with status ***PENDING***;
-    * 2 - The persisted order will be produced on ***NEW_ORDER*** Kafka topic;
-    * 3 - Will listen to the topic and check if the customer has a balance;
-    * 4 - Will produce a message on ***ORDER_STATUS_CHANGE*** Kafka topic updating the order status (***FINISHED*** or ***CANCELLED***);
-    * 5 - Will listen to the topic and update the order status on MongoDB.
-    
-    
-    
+    ![Alt text](https://user-images.githubusercontent.com/51386403/95261158-45436900-0800-11eb-9b10-ec7bfe7cd371.png "Architecture")
+    * 1 - Will receive an order and check if stock is avaliable
+    * 2 - If has stock, will create the order and persist on MongoDB with status ***PENDING***;
+    * 3 - The persisted order will be produced on ***NEW_ORDER*** Kafka topic;
+    * 4 - Will listen to the topic and check if the customer has available balance;
+    * 5 - Will produce a message on ***ORDER_STATUS_CHANGE*** Kafka topic updating the order status (***FINISHED*** or ***CANCELLED***);
+    * 6 - Will listen to the topic and update the order status on MongoDB;
+    * 7 - Will update the product stock (if product status is ***FINISHED***).
