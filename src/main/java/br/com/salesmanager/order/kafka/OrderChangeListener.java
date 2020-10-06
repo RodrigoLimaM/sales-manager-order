@@ -1,6 +1,7 @@
 package br.com.salesmanager.order.kafka;
 
 import br.com.salesmanager.order.model.Order;
+import br.com.salesmanager.order.model.enums.OrderStatus;
 import br.com.salesmanager.order.service.OrderService;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,6 +26,12 @@ public class OrderChangeListener {
         var order = orderService.findById(orderChange.getOrderId())
                 .map(ord -> orderService.updateOrderStatus(ord, orderChange.getOrderStatus()))
                 .orElseThrow(() -> new RuntimeException("Null order"));
+
+        if(order.getOrderStatus() == OrderStatus.FINISHED) {
+            Object subtractQuantityResponse = orderService.subtractQuantity(order.getProductId(), order.getProductQuantity());
+            log.info("Quantity updated: {}", subtractQuantityResponse);
+        }
+
 
         log.info("Order update: {}", order);
     }

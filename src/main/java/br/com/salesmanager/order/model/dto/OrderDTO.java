@@ -6,7 +6,6 @@ import lombok.Getter;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.math.BigDecimal;
 
 @AllArgsConstructor
 @Getter
@@ -15,12 +14,12 @@ public class OrderDTO {
 
     @NotBlank
     @NotNull
-    private final String productName;
+    private final String customerId;
 
     @NotBlank
     @NotNull
-    private final String customerId;
+    private final String productId;
 
     @NotNull
-    private final BigDecimal value;
+    private final Integer productQuantity;
 }

@@ -28,11 +28,14 @@ public class Order {
     @Field(name = "customer_id")
     private final String customerId;
 
-    @Field(name = "product_name")
-    private final String productName;
+    @Field(name = "product_id")
+    private final String productId;
 
-    @Field(name = "order_value")
-    private final BigDecimal value;
+    @Field(name = "product_quantity")
+    private final Integer productQuantity;
+
+    @Field(name = "order_total_value")
+    private BigDecimal orderTotalValue;
 
     @Field(name = "order_status")
     private OrderStatus orderStatus;

@@ -1,5 +1,7 @@
 package br.com.salesmanager.order.service;
 
+import br.com.salesmanager.order.client.SalesManagerProductClient;
+import br.com.salesmanager.order.config.exception.UnavailableProductException;
 import br.com.salesmanager.order.kafka.OrderProducer;
 import br.com.salesmanager.order.model.Order;
 import br.com.salesmanager.order.model.enums.OrderStatus;
@@ -23,13 +25,20 @@ public class OrderService {
     @Autowired
     OrderProducer orderProducer;
 
-    public Order insert(OrderDTO orderDTO) {
-        var order = orderMapper.mapOrderDTOToOrder(orderDTO);
-        order.setOrderStatus(OrderStatus.PENDING);
-        order = orderRepository.insert(order);
-        orderProducer.sendMessage(order);
+    @Autowired
+    SalesManagerProductClient salesManagerProductClient;
 
-        return order;
+    public Order insert(OrderDTO orderDTO) {
+        if(salesManagerProductClient.hasAvailableStock(orderDTO.getProductQuantity(), orderDTO.getProductId())) {
+            var order = orderMapper.mapOrderDTOToOrder(orderDTO, salesManagerProductClient.getUnitaryValue(orderDTO.getProductId()));
+            order.setOrderStatus(OrderStatus.PENDING);
+            order = orderRepository.insert(order);
+            orderProducer.sendMessage(order);
+
+            return order;
+        } else {
+            throw new UnavailableProductException();
+        }
     }
 
     public Order updateOrderStatus(Order order, OrderStatus orderStatus) {
@@ -41,7 +50,12 @@ public class OrderService {
         return orderRepository.findById(customerId);
     }
 
+    public Object subtractQuantity(String productId, Integer productQuantity) {
+        return salesManagerProductClient.subtractQuantity(productId, productQuantity);
+    }
+
     private Order save(Order order) {
         return orderRepository.save(order);
     }
+
 }
