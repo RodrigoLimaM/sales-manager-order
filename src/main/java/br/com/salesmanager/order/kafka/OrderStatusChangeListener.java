@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Slf4j
 @AllArgsConstructor
-public class OrderChangeListener {
+public class OrderStatusChangeListener {
 
     private static final String TOPIC = "yje6oae7-ORDER_STATUS_CHANGE";
 

@@ -16,7 +16,7 @@ public class OrderProducer {
     private KafkaTemplate<String, Order> kafkaTemplate;
 
     public void sendMessage(Order message) {
-        log.info("Produced message: {}, Topic: {}", message, TOPIC);
         kafkaTemplate.send(TOPIC, message);
+        log.info("Produced message: {}, Topic: {}", message, TOPIC);
     }
 }
