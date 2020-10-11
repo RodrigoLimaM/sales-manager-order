@@ -1,5 +1,6 @@
 package br.com.salesmanager.order.model.dto;
 
+import br.com.salesmanager.order.model.Address;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -22,4 +23,7 @@ public class OrderDTO {
 
     @NotNull
     private final Integer productQuantity;
+
+    @NotNull
+    private Address address;
 }

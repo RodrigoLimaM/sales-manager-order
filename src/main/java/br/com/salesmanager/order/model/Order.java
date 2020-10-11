@@ -40,6 +40,9 @@ public class Order {
     @Field(name = "order_status")
     private OrderStatus orderStatus;
 
+    @Field(name = "order_address")
+    private Address address;
+
     @CreatedDate
     @Field(name = "creation_date")
     private final LocalDateTime creationDate;

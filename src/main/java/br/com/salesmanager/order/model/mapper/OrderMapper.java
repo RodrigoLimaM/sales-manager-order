@@ -15,6 +15,7 @@ public class OrderMapper {
                 .productId(orderDTO.getProductId())
                 .productQuantity(orderDTO.getProductQuantity())
                 .orderTotalValue(unitaryValue.multiply(BigDecimal.valueOf(orderDTO.getProductQuantity())))
+                .address(orderDTO.getAddress())
                 .build();
     }
 }
