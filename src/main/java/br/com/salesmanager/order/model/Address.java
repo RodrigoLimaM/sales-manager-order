@@ -19,6 +19,11 @@ public class Address {
 
     @NotBlank
     @NotNull
+    @Field(name = "recipient")
+    private String recipient;
+
+    @NotBlank
+    @NotNull
     @Field(name = "street")
     private String street;
 

@@ -11,9 +11,18 @@ Microsservice for order management of the sales-manager architecture
  *  **Request Body**
     ```json
     {
-      "customerId": "5f7cdf2f00f37b096056a874",
-      "productId": "5f7cdfb273e86e129ea6efa9",
-      "productQuantity": 5
+      "address": {
+        "city": "São Paulo",
+        "country": "Brasil",
+        "number": 405,
+        "recipient": "Rodrigo Lima Martins da Silva",
+        "state": "São Paulo",
+        "street": "Rua Elias Bedran",
+        "zipCode": "08051-480"
+      },
+      "customerId": "5f82758834671438dfdc7483",
+      "productId": "5f82756006d17568b0ab0ed4",
+      "productQuantity": 1
     }
     ```
  * **Success Response:**
@@ -22,15 +31,24 @@ Microsservice for order management of the sales-manager architecture
         **Content:**
     ```json
     {
-      "_id": "5f7ce3a263fd9b52935c4f19",
-      "customerId": "5f7cdf2f00f37b096056a874",
-      "productId": "5f7cdfb273e86e129ea6efa9",
-      "productQuantity": 5,
-      "orderTotalValue": 11000,
+      "_id": "5f82785d0ce99e49c0859f0e",
+      "customerId": "5f82758834671438dfdc7483",
+      "productId": "5f82756006d17568b0ab0ed4",
+      "productQuantity": 1,
+      "orderTotalValue": 160,
       "orderStatus": "PENDING",
-      "creationDate": "2020-10-06T18:37:38.1778324",
-      "updateDate": "2020-10-06T18:37:38.1778324",
-      "orderId": "5f7ce3a263fd9b52935c4f19"
+      "address": {
+        "recipient": "Rodrigo Lima Martins da Silva",
+        "street": "Rua Elias Bedran",
+        "number": 405,
+        "zipCode": "08051-480",
+        "city": "São Paulo",
+        "state": "São Paulo",
+        "country": "Brasil"
+      },
+      "creationDate": "2020-10-11T00:13:33.1025255",
+      "updateDate": "2020-10-11T00:13:33.1025255",
+      "orderId": "5f82785d0ce99e49c0859f0e"
     }
     ```
     
