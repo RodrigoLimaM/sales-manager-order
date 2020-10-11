@@ -36,7 +36,7 @@ Microsservice for order management of the sales-manager architecture
       "productId": "5f82756006d17568b0ab0ed4",
       "productQuantity": 1,
       "orderTotalValue": 160,
-      "orderStatus": "PENDING",
+      "orderStatus": "PROCESSING_PAYMENT",
       "address": {
         "recipient": "Rodrigo Lima Martins da Silva",
         "street": "Rua Elias Bedran",
@@ -48,7 +48,8 @@ Microsservice for order management of the sales-manager architecture
       },
       "creationDate": "2020-10-11T00:13:33.1025255",
       "updateDate": "2020-10-11T00:13:33.1025255",
-      "orderId": "5f82785d0ce99e49c0859f0e"
+      "orderId": "5f82785d0ce99e49c0859f0e",
+      "orderDescription": "Processando pagamento"
     }
     ```
     

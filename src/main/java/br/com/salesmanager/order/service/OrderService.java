@@ -33,7 +33,7 @@ public class OrderService {
             throw new UnavailableProductException();
 
         var order = orderMapper.mapOrderDTOToOrder(orderDTO, salesManagerProductClient.getUnitaryValue(orderDTO.getProductId()));
-        order.setOrderStatus(OrderStatus.PENDING);
+        order.setOrderStatus(OrderStatus.PROCESSING_PAYMENT);
         order = orderRepository.insert(order);
         orderProducer.sendMessage(order);
 

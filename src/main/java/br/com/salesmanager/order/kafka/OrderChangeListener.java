@@ -1,6 +1,5 @@
 package br.com.salesmanager.order.kafka;
 
-import br.com.salesmanager.order.model.Order;
 import br.com.salesmanager.order.model.enums.OrderStatus;
 import br.com.salesmanager.order.service.OrderService;
 import lombok.AllArgsConstructor;
@@ -27,7 +26,7 @@ public class OrderChangeListener {
                 .map(ord -> orderService.updateOrderStatus(ord, orderChange.getOrderStatus()))
                 .orElseThrow(() -> new RuntimeException("Null order"));
 
-        if(order.getOrderStatus() == OrderStatus.FINISHED) {
+        if(order.getOrderStatus() == OrderStatus.APPROVED) {
             Object subtractQuantityResponse = orderService.subtractQuantity(order.getProductId(), order.getProductQuantity());
             log.info("Quantity updated: {}", subtractQuantityResponse);
         }

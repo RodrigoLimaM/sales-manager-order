@@ -55,6 +55,10 @@ public class Order {
         return _id;
     }
 
+    public String getOrderDescription() {
+        return orderStatus.getDescription();
+    }
+
     public void setOrderStatus(OrderStatus orderStatus) {
         this.orderStatus = orderStatus;
     }
