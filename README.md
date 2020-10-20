@@ -64,6 +64,43 @@ Microsservice for order management of the sales-manager architecture
       "message": "Invalid null or blank field"
     }
     ```
+
+* **URL**\
+/order/{orderId}
+
+* **Method:**\
+ `GET`
+
+  *  **Path Variables**
+
+     `orderId={String}`
+ * **Success Response:**
+
+    * **Code:** 200 <br />
+        **Content:**
+    ```json
+    {
+      "_id": "5f82785d0ce99e49c0859f0e",
+      "customerId": "5f82758834671438dfdc7483",
+      "productId": "5f82756006d17568b0ab0ed4",
+      "productQuantity": 1,
+      "orderTotalValue": 160,
+      "orderStatus": "PROCESSING_PAYMENT",
+      "address": {
+        "recipient": "Rodrigo Lima Martins da Silva",
+        "street": "Rua Elias Bedran",
+        "number": 405,
+        "zipCode": "08051-480",
+        "city": "São Paulo",
+        "state": "São Paulo",
+        "country": "Brasil"
+      },
+      "creationDate": "2020-10-11T00:13:33.1025255",
+      "updateDate": "2020-10-11T00:13:33.1025255",
+      "orderId": "5f82785d0ce99e49c0859f0e",
+      "orderDescription": "Processando pagamento"
+    }
+    ```
   
 * **Architecture:**
  
