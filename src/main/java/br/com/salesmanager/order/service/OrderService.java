@@ -9,8 +9,10 @@ import br.com.salesmanager.order.model.dto.OrderDTO;
 import br.com.salesmanager.order.model.mapper.OrderMapper;
 import br.com.salesmanager.order.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -57,4 +59,8 @@ public class OrderService {
         return orderRepository.save(order);
     }
 
+    public Optional<List<Order>> findOrdersByCustomerId(String customerId) {
+        return Optional.of(orderRepository.findByCustomerId(customerId))
+                .map(list -> list.isEmpty() ? null : list);
+    }
 }

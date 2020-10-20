@@ -101,6 +101,45 @@ Microsservice for order management of the sales-manager architecture
       "orderDescription": "Processando pagamento"
     }
     ```
+
+* **URL**\
+/order/customer/{customerId}
+
+* **Method:**\
+ `GET`
+
+  *  **Path Variables**
+
+     `customerId={String}`
+ * **Success Response:**
+
+    * **Code:** 200 <br />
+        **Content:**
+    ```json
+    [
+      {
+        "_id": "5f8e4ebef6b0d95639d9c2cc",
+        "customerId": "5f8e089f9923fc14d04af7e2",
+        "productId": "5f8bbfb897e655264db0607d",
+        "productQuantity": 1,
+        "orderTotalValue": 1000.99,
+        "orderStatus": "PREPARING_FOR_SHIPPING",
+        "address": {
+          "recipient": "Iris Moraes de Jesus",
+          "street": "Travessa Ascendino Lisboa",
+          "number": 23,
+          "zipCode": "80687-981",
+          "city": "São Paulo",
+          "state": "São Paulo",
+          "country": "Brasil"
+        },
+        "creationDate": "2020-10-19T23:43:09.59",
+        "updateDate": "2020-10-19T23:43:55.941",
+        "orderId": "5f8e4ebef6b0d95639d9c2cc",
+        "orderDescription": "Preparando para envio"
+      }
+    ]
+    ```
   
 * **Architecture:**
  
