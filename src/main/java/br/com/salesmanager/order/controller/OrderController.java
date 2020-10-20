@@ -32,7 +32,7 @@ public class OrderController {
     public ResponseEntity<Order> getOrderById(@PathVariable String orderId) {
         return orderService.findById(orderId)
                 .map(ResponseEntity::ok)
-                .orElseGet(() -> ResponseEntity.noContent().build());
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
 }
