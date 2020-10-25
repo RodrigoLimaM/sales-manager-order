@@ -43,4 +43,11 @@ public class OrderController {
                 .orElseGet(() -> ResponseEntity.noContent().build());
     }
 
+    @GetMapping
+    public ResponseEntity<List<Order>> getAllOrders() {
+        return orderService.findAll()
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.noContent().build());
+    }
+
 }

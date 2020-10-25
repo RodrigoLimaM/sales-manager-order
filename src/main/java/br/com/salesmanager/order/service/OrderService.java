@@ -8,6 +8,7 @@ import br.com.salesmanager.order.model.enums.OrderStatus;
 import br.com.salesmanager.order.model.dto.OrderDTO;
 import br.com.salesmanager.order.model.mapper.OrderMapper;
 import br.com.salesmanager.order.repository.OrderRepository;
+import com.mongodb.client.MongoIterable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -61,6 +62,11 @@ public class OrderService {
 
     public Optional<List<Order>> findOrdersByCustomerId(String customerId) {
         return Optional.of(orderRepository.findByCustomerId(customerId))
+                .map(list -> list.isEmpty() ? null : list);
+    }
+
+    public Optional<List<Order>> findAll() {
+        return Optional.of(orderRepository.findAll())
                 .map(list -> list.isEmpty() ? null : list);
     }
 }

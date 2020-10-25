@@ -140,6 +140,63 @@ Microsservice for order management of the sales-manager architecture
       }
     ]
     ```
+
+* **URL**\
+/order
+
+* **Method:**\
+ `GET`
+
+ * **Success Response:**
+
+    * **Code:** 200 <br />
+        **Content:**
+    ```json
+    [
+      {
+        "_id": "5f95a76d7eef7713f0927298",
+        "customerId": "5f959a1534263543d88047ba",
+        "productId": "5f8e1527af376630120f3030",
+        "productQuantity": 1,
+        "orderTotalValue": 90.99,
+        "orderStatus": "APPROVED",
+        "address": {
+          "recipient": "Rodrigo Lima Martins da Silva",
+          "street": "Rua Elias Bedran",
+          "number": 405,
+          "zipCode": "08051-480",
+          "city": "São Paulo",
+          "state": "São Paulo",
+          "country": "Brasil"
+        },
+        "creationDate": "2020-10-25T13:27:25.437",
+        "updateDate": "2020-10-25T13:27:48.856",
+        "orderId": "5f95a76d7eef7713f0927298",
+        "orderDescription": "Pedido aprovado"
+      },
+      {
+        "_id": "5f95a77f7eef7713f0927299",
+        "customerId": "5f959a1534263543d88047ba",
+        "productId": "5f8e1833af376630120f3031",
+        "productQuantity": 1,
+        "orderTotalValue": 254.99,
+        "orderStatus": "APPROVED",
+        "address": {
+          "recipient": "Rodrigo Lima Martins da Silva",
+          "street": "Rua Elias Bedran",
+          "number": 405,
+          "zipCode": "08051-480",
+          "city": "São Paulo",
+          "state": "São Paulo",
+          "country": "Brasil"
+        },
+        "creationDate": "2020-10-25T13:27:43.045",
+        "updateDate": "2020-10-25T13:27:51.296",
+        "orderId": "5f95a77f7eef7713f0927299",
+        "orderDescription": "Pedido aprovado"
+      }
+    ]
+    ```
   
 * **Architecture:**
  
