@@ -6,16 +6,16 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum OrderStatus {
-    PROCESSING_PAYMENT("Processando pagamento"),
-    APPROVED("Pedido aprovado"),
-    CANCELLED("Pedido cancelado"),
-    PREPARING_FOR_SHIPPING("Preparando para envio"),
-    IN_SEPARATION("Em separação"),
-    SENT_TO_CARRIER("Enviado para transportadora"),
-    OUT_FOR_SHIPMENT("Saiu para entrega"),
-    DELIVERED("Entregue"),
-    MISSING_RECIPIENT("Destinatário ausente"),
-    MISPLACED("Extraviado"),
+    PROCESSING_PAYMENT("Processing Payment"),
+    APPROVED("Approved"),
+    CANCELLED("Cancelled"),
+    PREPARING_FOR_SHIPPING("Preparing for shipping"),
+    IN_SEPARATION("In separation"),
+    SENT_TO_CARRIER("Sent to carrier"),
+    OUT_FOR_SHIPMENT("Out for shipment"),
+    DELIVERED("Delivered"),
+    MISSING_RECIPIENT("Missing Recipient"),
+    MISPLACED("Misplaced"),
     ;
 
     private String description;

@@ -49,7 +49,7 @@ Microsservice for order management of the sales-manager architecture
       "creationDate": "2020-10-11T00:13:33.1025255",
       "updateDate": "2020-10-11T00:13:33.1025255",
       "orderId": "5f82785d0ce99e49c0859f0e",
-      "orderDescription": "Processando pagamento"
+      "orderDescription": "Processing Payment"
     }
     ```
     
@@ -98,7 +98,7 @@ Microsservice for order management of the sales-manager architecture
       "creationDate": "2020-10-11T00:13:33.1025255",
       "updateDate": "2020-10-11T00:13:33.1025255",
       "orderId": "5f82785d0ce99e49c0859f0e",
-      "orderDescription": "Processando pagamento"
+      "orderDescription": "Processing Payment"
     }
     ```
 
@@ -136,7 +136,7 @@ Microsservice for order management of the sales-manager architecture
         "creationDate": "2020-10-19T23:43:09.59",
         "updateDate": "2020-10-19T23:43:55.941",
         "orderId": "5f8e4ebef6b0d95639d9c2cc",
-        "orderDescription": "Preparando para envio"
+        "orderDescription": "Preparing for shipping"
       }
     ]
     ```
@@ -172,7 +172,7 @@ Microsservice for order management of the sales-manager architecture
         "creationDate": "2020-10-25T13:27:25.437",
         "updateDate": "2020-10-25T13:27:48.856",
         "orderId": "5f95a76d7eef7713f0927298",
-        "orderDescription": "Pedido aprovado"
+        "orderDescription": "Approved"
       },
       {
         "_id": "5f95a77f7eef7713f0927299",
@@ -193,7 +193,7 @@ Microsservice for order management of the sales-manager architecture
         "creationDate": "2020-10-25T13:27:43.045",
         "updateDate": "2020-10-25T13:27:51.296",
         "orderId": "5f95a77f7eef7713f0927299",
-        "orderDescription": "Pedido aprovado"
+        "orderDescription": "Approved"
       }
     ]
     ```
