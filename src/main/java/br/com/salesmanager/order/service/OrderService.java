@@ -35,7 +35,7 @@ public class OrderService {
         if(!salesManagerProductClient.hasAvailableStock(orderDTO.getProductQuantity(), orderDTO.getProductId()))
             throw new UnavailableProductException();
 
-        var order = orderMapper.mapOrderDTOToOrder(orderDTO, salesManagerProductClient.getUnitaryValue(orderDTO.getProductId()));
+        Order order = orderMapper.mapOrderDTOToOrder(orderDTO, salesManagerProductClient.getUnitaryValue(orderDTO.getProductId()));
         order.setOrderStatus(OrderStatus.PROCESSING_PAYMENT);
         order = orderRepository.insert(order);
         orderProducer.sendMessage(order);

@@ -1,0 +1,1 @@
+web: java -jar target/sales-manager-order-0.0.1-SNAPSHOT.jar

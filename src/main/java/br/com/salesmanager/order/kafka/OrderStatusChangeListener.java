@@ -1,5 +1,6 @@
 package br.com.salesmanager.order.kafka;
 
+import br.com.salesmanager.order.model.Order;
 import br.com.salesmanager.order.model.enums.OrderStatus;
 import br.com.salesmanager.order.service.OrderService;
 import lombok.AllArgsConstructor;
@@ -22,7 +23,7 @@ public class OrderStatusChangeListener {
     public void consume(OrderChange orderChange) {
         log.info("Message Listened: {}, Topic: {}", orderChange, TOPIC);
 
-        var order = orderService.findById(orderChange.getOrderId())
+        Order order = orderService.findById(orderChange.getOrderId())
                 .map(ord -> orderService.updateOrderStatus(ord, orderChange.getOrderStatus()))
                 .orElseThrow(() -> new RuntimeException("Null order"));
 
